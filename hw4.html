@@ -51,7 +51,7 @@ function init() {
   jsonLoader.load(url, function(geometries, materials) {
     var material = new THREE.MeshFaceMaterial(materials);
     ship = new THREE.Mesh(geometries, material);
-    ship.scale.set(100, 100, 100);
+    ship.scale.set(10000, 10000, 10000);
     scene.add(ship);
   });
 
