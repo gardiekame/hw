@@ -81,7 +81,6 @@ function animate() {
   var degree = Math.PI / 360;
   console.log(degree);
   angle += degree;
-  //torsoRotationPoint.rotation.y = -angle;
   
   this.whichCamera = this.whichCamera || 0;
   keyboard.update();
@@ -89,9 +88,9 @@ function animate() {
   
   var relativeCameraOffset = new THREE.Vector3(0, 50, -100);
 
-  var cameraOffset = relativeCameraOffset.applyMatrix4(head.matrixWorld);
+  var cameraOffset = relativeCameraOffset.applyMatrix4(ship.matrixWorld);
   camera3rd.position.copy(cameraOffset);
-  camera3rd.lookAt(head.position);
+  camera3rd.lookAt(ship.position);
   
   controls.update();
   requestAnimationFrame(animate);
