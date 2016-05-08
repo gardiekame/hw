@@ -48,10 +48,10 @@ function init() {
 
   var jsonLoader = new THREE.JSONLoader();
   var url = "models/space-shuttle-orbiter.json";
-  jsonLoader.load(url, function(geometry, materials) {
+  jsonLoader.load(url, function(geometries, materials) {
     var material = new THREE.MeshFaceMaterial(materials);
-    ship = new THREE.Mesh(geometry, material);
-    ship.scale.set(400, 400, 400);
+    ship = new THREE.Mesh(geometries, material);
+    ship.scale.set(100, 100, 100);
     scene.add(ship);
   });
 
