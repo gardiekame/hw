@@ -78,6 +78,7 @@ var scene, renderer, camera;
 var controls;
 var jsonModel, jsonModel2;
 var angle = 0;
+var ground;
 
 init();
 animate();
@@ -147,10 +148,19 @@ function init() {
 
     jsonModel2 = jsonModel.clone();
     jsonModel2.position.set(70, 0, 0);
-    jsonModel.material = new THREE.MeshLambertMaterial();
+    jsonModel.material = new THREE.MeshPhongMaterial();
     scene.add(jsonModel2);
 
   });
+  
+  var groundGeo = new THREE.PlaneGeometry(250, 250);
+  var groundMat = new THREE.MeshBasicMaterial({
+	color: 0xc2c2a3, 
+	side: THREE.DoubleSide
+	});
+  ground = new THREE.Mesh(groundGeo, groundMat);
+  scene.add(ground);
+  ground.rotation.x = Math.PI/2;
 }
 
 function animate() {
